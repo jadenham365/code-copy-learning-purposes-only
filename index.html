@@ -1,0 +1,71 @@
+<body>
+
+  <style>
+    @function l($l, $a: 1) {
+      @return hsla(30, 30%, 0% + $l, $a);
+    }
+
+    * {
+      border: 0;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #17181c;
+    }
+
+    .drawing {
+      background:
+        // walls
+        linear-gradient(90deg, l(25) 10.5%, l(21.75) 21.75%, l(25) 22% 30.625%, l(25, 0) 30.625%) (0 0) / (100% 100%),
+        linear-gradient(90deg, l(25, 0) 68.5%, l(25) 68.5%) (0 0) / (100% 100%),
+        // wall on side of floor
+        linear-gradient(15deg, l(25) 22.9%, l(25, 0) 23%) (49.25% 0) / (38% 100%),
+        // ball
+        radial-gradient(100% 140% at 50% 70%, l(56.25, 0) 49%, l(56.25) 50%) (50.625% 64.8%) / (13.25% 12.9%),
+        linear-gradient(l(56.25) 72%, l(56.25, 0) 72%) (58.25% 64.8%) / (2% 12.9%),
+        radial-gradient(200% 100% at 0 50%, l(31.25, 0) 48%, l(31.25, 0.4) 48.5% 49.5%, l(31.25, 0) 50%) (53% 68.6%) / (5% 17.7%),
+        radial-gradient(6% 8% at 55% 60%, l(70), l(70, 0) 50%),
+        linear-gradient(50deg, l(62.5, 0) 63%, l(62.5) 80%) (50.625% 68.8%) / (13.25% 17.7%),
+        radial-gradient(13.25% 17.7% at 50.625% 65.3%, l(31.25) 45%, l(29.25) 49%, l(29.25, 0) 50%),
+        // ball shadow
+        radial-gradient(4% 1% at 50% 74.3%, l(18.75) 30%, l(18.75, 0) 50%),
+        radial-gradient(200% 200% at -15% 0, l(31.25) 45%, l(31.25, 0) 50%) (48.2% 76.1%) / (11% 3%),
+        radial-gradient(15% 3% at 39% 75.6%, l(31.25) 45%, l(31.25, 0) 50%),
+        radial-gradient(15% 2.8% at 42% 75%, l(31.25) 45%, l(31.25, 0) 50%),
+        radial-gradient(15% 2.3% at 44.8% 74.6%, l(31.25) 45%, l(31.25, 0) 50%),
+        // floor
+        linear-gradient(-7deg, l(31.25) 20%, l(62.5) 24% 30.4%, l(56.25) 30.5%) (49.25% 0) / (38% 100%);
+      background-repeat: no-repeat;
+      margin: auto;
+      max-width: 48em;
+      position: relative;
+
+      // for aspect ratio box
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+      }
+
+      &:before {
+        padding-top: (3 / 4) * 100%;
+        width: 100%;
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  </style>
+
+
+  <div class="drawing"></div>
+
+</body>
